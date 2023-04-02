@@ -31,10 +31,13 @@ class Solution(object):
 
 if __name__ == '__main__':
     solution = Solution()
-    print(solution.gridTrading(1000, 3009, 1768, 120, 640, 100, 7))
-    print(solution.gridTrading(1000, 3009, 1768, 120, 640, 100, 11))
-    print(solution.gridTrading(1000, 3009, 1768, 120, 640, 20, 12))
-    print(solution.gridTrading(1000, 3009, 1768, 120, 640, 1, 30))
-    print(solution.gridTrading(1000, 3009, 1768, 120, 6000, 1, 30))
+    # print(solution.gridTrading(1000, 3009, 1768, 120, 640, 100, 7))
+    # print(solution.gridTrading(1000, 3009, 1768, 120, 640, 100, 11))
+    # print(solution.gridTrading(1000, 3009, 1768, 120, 640, 20, 12))
+    # print(solution.gridTrading(1000, 3009, 1768, 120, 640, 1, 30))
+    # print(solution.gridTrading(1000, 3009, 1768, 120, 6000, 1, 30))
+    print(solution.gridTrading(1200, 2200, 1761, 60, 640, 100, 6))
+    print(solution.gridTrading(1673, 1850, 1761, 25, 660, 100, 6))
+
 
 
