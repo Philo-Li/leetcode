@@ -33,10 +33,19 @@ class Solution(object):
             i -= 1 # move result pointer
         return res
 
+    def sortedSquares3(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        return sorted(x*x for x in nums)
+
 
 if __name__ == '__main__':
     solution = Solution()
     print(solution.sortedSquares([-4, -1, -1, 3, 11]))
     print(solution.sortedSquares([-7, -3, 2, 3, 11]))
+    print(solution.sortedSquares2([-4, -1, -1, 3, 11]))
+    print(solution.sortedSquares2([-7, -3, 2, 3, 11]))
     print(solution.sortedSquares2([-4, -1, -1, 3, 11]))
     print(solution.sortedSquares2([-7, -3, 2, 3, 11]))
