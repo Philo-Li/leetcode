@@ -27,7 +27,20 @@ class Solution(object):
         :rtype: int
         """
         # slippery window
+        left, right = 0, 0
+        min_len = float('inf')
+        s = 0
+
+        while right < len(nums):
+            s += nums[right]
+
+            while s >= target:
+                min_len = min(min_len, right - left + 1)
+                s -= nums[left]
+                left += 1
+            right += 1
         
+        return min_len if min_len != float('inf') else 0
 
 
 
@@ -36,3 +49,6 @@ if __name__ == '__main__':
     print(solution.minSubArrayLen(7, [2, 3, 1, 2, 4, 3]))
     print(solution.minSubArrayLen(4, [1, 4, 4]))
     print(solution.minSubArrayLen(11, [1, 1, 1, 1, 1, 1, 1, 1]))
+    print(solution.minSubArrayLen2(7, [2, 3, 1, 2, 4, 3]))
+    print(solution.minSubArrayLen2(4, [1, 4, 4]))
+    print(solution.minSubArrayLen2(11, [1, 1, 1, 1, 1, 1, 1, 1]))
