@@ -1,22 +1,26 @@
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
-
+# Single LinkedList
+# set a virtual head node
 class MyLinkdedList(object):
-
     def __init__(self):
-        self.val = 0
-        self.next = None
+        self.dummy_head = ListNode()
+        self.size = 0
 
     def get(self, index):
         """
         :type index: int
         :rtype: int
         """
-        current = self
-        for i in range(index) - 1:
-            if current.next:
-                current = current.next
-            else:
-                return -1
+        if  index < 0 or index >= self.size:
+            return -1
+
+        current = self.dummy_head.next
+        for i in range(index):
+            current = current.next
 
         return current.val
 
@@ -25,21 +29,21 @@ class MyLinkdedList(object):
         :type val:int
         :rtype: None
         """
-        head = MyLinkdedList(val)
-        head.next = self
+        self.dummy_head.next = ListNode(val, self.dummy_head.next)
+        self.size += 1
 
     def addAtTail(self, val):
         """
         :type val: int
         :rtype: None
         """
-        current = self
-        new_node = MyLinkdedList(val)
+        current = self.dummy_head
 
         while current.next:
             current = current.next
 
-        current.next = new_node
+        current.next = ListNode(val)
+        self.size += 1
 
     def addAtIndex(self, index, val):
         """
@@ -47,18 +51,15 @@ class MyLinkdedList(object):
         :type val: int
         :rtype: None
         """
-        current = self.next
-        prev = self
-        i = 0
-        while current:
-            if i == index:
-                new_node = MyLinkdedList(val)
-                prev.next = new_node
-                new_node.next = current
-                break
-            prev = current
+        if index < 0 or index > self.size:
+            return
+       
+        current = self.dummy_head
+        for i in range(index):
             current = current.next
-            i += 1
+        
+        current.next = ListNode(val, current.next)
+        self.size += 1
             
 
     def deleteAtIndex(self, index):
@@ -66,13 +67,15 @@ class MyLinkdedList(object):
         :type index: int
         :rtype None
         """
-        current = self.next
-        prev = self
-        i = 0
-        while current:
-            if i == index:
-                prev.next = current.next
-                break
+        if index < 0 or index >= self.size:
+            return
+        
+        current = self.dummy_head
+        for i in range(index):
+            current = current.next
+
+        current.next = current.next.next
+        self.size -= 1
 
 # Your MylinkedList object will be instaiated and called as such:
 # obj = MyLinkedList()
