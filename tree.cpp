@@ -133,5 +133,4 @@ public:
         }
         return result;
     }
-}
-
+};
